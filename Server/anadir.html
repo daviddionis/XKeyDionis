@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <meta charset="utf-8">
+    <title>XKeyDionis || by DevDionis Labs</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    $(document).ready(function() {
+      $.getJSON('http://ip.jsontest.com/?callback=?', function(data) {
+        console.log(data.ip);
+
+        $('#ip_user').val(data.ip);
+        $('#yourip').text('Tu dirección IP es: '+data.ip);
+      });
+    });
+    </script>
+    <h1>XKeyDionis</h1>
+    <h2>Introducir palabras peligrosas</h2>
+    <a onClick="window.history.back();" style="text-decoration: underline blue; color: blue;">Go Back</a>
+    <hr>
+    <form class="" action="/peticion_anadir" method="post">
+      <h4>Palabras peligrosas</h4>
+      <p><i>( Para separarlas use punto y coma (;) )</i></p>
+      <textarea name="metadata" rows="5" cols="50"></textarea>
+      <br><br>
+      <input type="submit" name="" value="Añadir">
+      <input type="hidden" name="ip_user" id='ip_user' value="">
+    </form>
+    <h5 style="bottom: 0%; text-bottom: right; right: 15px; position: fixed; ">by <a href="https://gitlab.com/dionislabs">DionisLabs</a></h5>
+    <p style="bottom: 0%; text-bottom: left; position: fixed;" id="yourip"></p>
+  </body>
+</html>

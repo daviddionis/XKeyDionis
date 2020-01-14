@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <meta charset="utf-8">
+    <title>XKeyDionis || by DevDionis Labs</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    $(document).ready(function() {
+      $.getJSON('http://ip.jsontest.com/?callback=?', function(data) {
+        console.log(data.ip);
+
+        $('#ip_user').val(data.ip);
+        $('#yourip').text('Tu dirección IP es: '+data.ip);
+      });
+    });
+    </script>
+    <h1>Bienvenido a XKeyDionis</h1>
+    <a href="/" style="text-decoration: underline blue; color: blue;">Cerrar Sesión</a>
+    <hr>
+    <h2>Opciones:</h2>
+    <ul>
+      <form action="/ip" method="post">
+        <label for="submit">Hacer una busqueda con la IP&nbsp;&nbsp;&nbsp;</label> <br> <input type="submit" value="Hacerla"/>
+        <input type="hidden" name="ip_user" id='ip_user' value="">
+      </form>
+      <br>
+      <form action="/metadata" method="post">
+        <label for="submit">Hacer una busqueda con <i><b>metadata</b></i></label> <br> <input type="submit" value="Hacerla"/>
+        <input type="hidden" name="ip_user" id='ip_user' value="">
+      </form>
+      <br>
+      <form action="/coleccion" method="post">
+        <label for="submit">Visualizar datos que contengan palabras peligrosas</label> <br> <input type="submit" value="Visualizar"/>
+        <input type="hidden" name="ip_user" id='ip_user' value="">
+      </form>
+      <br>
+      <form action="/anadir" method="post">
+        <label for="submit">Añadir palabras peligrosas</label> <br> <input type="submit" value="Hacerla"/>
+        <input type="hidden" name="ip_user" id='ip_user' value="">
+      </form>
+      <br>
+      <form action="/camsol" method="post">
+        <label for="submit">Visualizar video cámara en tiempo real</label> <br> <input type="submit" value="Visualizar"/>
+        <input type="hidden" name="ip_user" id='ip_user' value="">
+      </form>
+      <br>
+      <form action="/vispal" method="post">
+        <label for="submit">Consultar lista de palabras peligrosas</label> <br> <input type="submit" value="Consultar"/>
+        <input type="hidden" name="ip_user" id='ip_user' value="">
+      </form>
+    </ul>
+    <h5 style="bottom: 0%; text-bottom: right; right: 15px; position: fixed; ">by <a href="https://gitlab.com/dionislabs">DionisLabs</a></h5>
+    <p style="bottom: 0%; text-bottom: left; position: fixed;" id="yourip"></p>
+  </body>
+</html>
